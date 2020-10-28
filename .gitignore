@@ -1,6 +1,5 @@
 .log
 node_modules
 .env
-Procfile
 package-lock.json
 src/controllers/requests.txt
