@@ -4,7 +4,9 @@ express = require("express");
 let router = express.Router();
 
 let initWebRoutes = (app)=>{
-    router.get("/",chatbotController.test);
+    /*router.get("/",(req,res)=>{
+        res.sendFile("../public/index.html");
+    });*/
 
     router.get("/webhook", chatbotController.getWebhook);
 

@@ -5,7 +5,7 @@ viewEngine = require('./config/viewEngine');
 initWebRoutes = require('./routes/web');
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
-
+const path = require('path');
 let app = express();
 
 //config the view engine
@@ -15,6 +15,8 @@ viewEngine(app);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
+//Creating an static folder
+app.use(express.static(path.join(__dirname,'public')));
 //int web Routes
 initWebRoutes(app);
 
