@@ -3,4 +3,5 @@ node_modules
 .env
 package-lock.json
 src/controllers/requests.txt
-src/punlic/snippets.html
+src/public/snippets.html
+src/dist
