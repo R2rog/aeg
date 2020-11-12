@@ -1,4 +1,6 @@
 const gulp = require('gulp');
+const uglify = require('gulp-uglify');
+const minify = require('gulp-minify');
 const imagemin = require('gulp-imagemin');
 const concat = require("gulp-concat");
 const terser = require('gulp-terser');
@@ -27,11 +29,15 @@ function imgMin(){
 
 //Javascript minifier
 function jsMin(){
-    return src(jsPath)
-    .pipe(sourcemaps.init())
-    .pipe(concat("all.js"))
-    .pipe(terser())
-    .pipe(sourcemaps.write('.'))
+    return src('src/js/main.js', { allowEmpty: true }) 
+    .pipe(minify({noSource: true,
+        exclude: ['tasks'],
+        ignoreFiles: ['-min.js'],
+        ext:{
+            src:'-debug.js',
+            min:'.js'
+        }
+    }))
     .pipe(dest('src/dist/js'));
 }
 
@@ -50,4 +56,4 @@ exports.copyHTML = copyHTML;
 exports.cssMin = cssMin;
 exports.jsMin = jsMin;
 //Default run command
-exports.default = copyHTML;
+exports.default = parallel(copyHTML,imgMin,cssMin,jsMin);

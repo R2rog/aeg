@@ -63,7 +63,7 @@
     });*/
     
 
-    /* Card Slider - Swiper */
+    /* Card Slider - Swiper 
 	var cardSlider = new Swiper('.card-slider', {
 		autoplay: {
             delay: 4000,
@@ -86,11 +86,11 @@
                 slidesPerView: 1
             } 
         }
-    });
+    });*/
 
     
 
-    /* Image Slider - Swiper */
+    /* Image Slider - Swiper 
     var imageSlider = new Swiper('.image-slider', {
         autoplay: {
             delay: 2000,
@@ -130,10 +130,10 @@
                 spaceBetween: 30
             },
         }
-    });
+    });*/
 
 
-    /* Image Slider - Magnific Popup */
+    /* Image Slider - Magnific Popup 
 	$('.popup-link').magnificPopup({
 		removalDelay: 300,
 		type: 'image',
@@ -148,8 +148,13 @@
 		gallery:{
 			enabled:true //enable gallery mode
 		}
-    });
+    });*/
 
+    /*Bootstrap Carousel controls*/
+    $('.carousel').carousel({
+        interval: 8000
+      })
+  
     
     /* Video Lightbox - Magnific Popup */
     $('.popup-youtube, .popup-vimeo').magnificPopup({

@@ -167,7 +167,9 @@
   line-height: 2em;
   position: relative;
   vertical-align: middle;
-  width: 2em; }
+  width: 2rem; 
+  padding-left: 3.5rem;
+}
 
 .fa-stack-1x,
 .fa-stack-2x {
@@ -177,10 +179,15 @@
   width: 100%; }
 
 .fa-stack-1x {
-  line-height: inherit; }
+  line-height: inherit;
+  color: white;
+  font-size: 1.5rem;
+  margin-left: 0.05rem;
+  margin-top: 0.40rem;
+ }
 
 .fa-stack-2x {
-  font-size: 2em; }
+  font-size: 2rem; }
 
 .fa-inverse {
   color: #fff; }
