@@ -85,43 +85,40 @@ function handleMessage(sender_psid, received_message) {
   // Checks if the message contains text
   if (received_message.text) {
     textMessage = received_message.text;
-    console.log(textMessage);
+    ts = new Date();
+    console.log(ts)
+    date = ts.toDateString().slice(0,3);
+    time = ts.toLocaleTimeString();
     subStr1 = 'gracias';
     subStr2 = 'Gracias';
-    let phoneNumber = firstTrait(received_message.nlp, 'wit$phone_number:phone_number');
-    console.log(phoneNumber);
-    if (textMessage.includes(subStr1)||textMessage.includes(subStr2)){
+    if (date == "Dom" || time > '18:30:00' && time < '8:30:00') {
       response = {
-        "text": "A usted por elegirnos"
+        "text": "Hola, por el momento no podemos atenderte pero deja tu mensaje y nos comunicaremos contigo dentro de nuestros horarios: Lun-Vie de 8:30 a 18:30 y Sab de 8:30 a 14:30"
       }
-    }
-    else {
-      // Create the payload for a basic text message, which
-      // will be added to the body of our request to the Send API
-      response = {
-        "text": `Hemos recibido sus datos/mensaje en breve nos comunicaremos con usted`
+    } else {
+      let phoneNumber = firstTrait(received_message.nlp, 'wit$phone_number:phone_number');
+      if (textMessage.includes(subStr1) || textMessage.includes(subStr2)) {
+        response = {
+          "text": "A usted por elegirnos"
+        };
+      } else if (phonenumber(textMessage)) {
+        response = {
+          "text": "Pasamos tu información a nuestro personal que se contactará contigo a la brevedad"
+        };
+      }
+      else {
+        // Create the payload for a basic text message, which
+        // will be added to the body of our request to the Send API
+        response = responses.canal;
       }
     }
   } else if (received_message.attachments) {
     // Get the URL of the message attachment
     let attachment_url = received_message.attachments[0].payload.url;
     response = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-            "template_type": "button",
-            "text": "Hemos recibido su imagen en breve le confirmaremos si contamos con la pieza en nuestro inventario",
-            "buttons": [
-                {
-                    "type": "payback",
-                    "title": "Menu",
-                    "payload": "comenzar"
-                }
-            ]
-        }
+      "text": "Hemos recibido su mensajen en breve nuestro equipo se comunicará contigo"
     }
-    }
-  }      
+  }
   // Send the response message
   callSendAPI(sender_psid, response);
 }
@@ -137,6 +134,7 @@ function handlePostback(sender_psid, received_postback) {
     case 'comenzar':
       response = responses.comenzar;
       break;
+    /*
     case 'refaccionaria':
       response = responses.refaccionaria;
       break;
@@ -166,7 +164,13 @@ function handlePostback(sender_psid, received_postback) {
       break;
     case 'seguimiento':
       response = responses.seguimiento;
-      break;
+      break;*/
+    case 'telefono':
+      response = responses.telefono;
+      break
+    case 'messenger':
+      response = responses.messenger;
+      break
   }
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
@@ -195,6 +199,18 @@ function callSendAPI(sender_psid, response) {
       console.error("Unable to send message:" + err);
     }
   });
+}
+
+//Phone validation
+function phonenumber(textMessage) {
+  console.log(textMessage);
+  var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  if (textMessage.match(phoneno)) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 module.exports = {

@@ -1,7 +1,7 @@
 //This file contains all the available responses proportioned by the bot.
 
 responseList = {
-    'comenzar': {
+    'inicio': {
         "attachment": {
             "type": "template",
             "payload": {
@@ -29,6 +29,52 @@ responseList = {
                 }]
             }
         }
+    },
+    "comenzar":{
+        "text": "Nuestro horario de atención es de Lunes a Viernes de 8:30 a 18:30 y Sábados de 8:30 a 14:30. ¿En que podemos ayudarte?"
+    },
+    "canal":{
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": [{
+                    "title": "Hemos recibido tu mensaje, ¿de qué manera prefiers que nos comuniquemos contigo?",
+                    "subtitle": "Por favor seleccione alguna de las opciones",
+                    "buttons": [
+                        {
+                            "type": "postback",
+                            "title": "Teléfono",
+                            "payload": "telefono",
+                        },
+                        {
+                            "type": "postback",
+                            "title": "Messenger",
+                            "payload": "messenger",
+                        },
+                    ],
+                }]
+            }
+        }
+    },
+    "telefono":{
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": "Por favor compártenos tu número de teléfono y nos comunicaremos contigo a la brevedad. Si lo prefieres también puedes llamarnos",
+                "buttons": [
+                    {
+                        "type": "phone_number",
+                        "title": "Llamar",
+                        "payload": "+5217717131011"
+                    }
+                ]
+            }
+        }
+    },
+    "messenger":{
+        "text":"Pasamos tu duda a nuestro personal y en breve este se contactará contigo."
     },
     "refaccionaria": {
         "attachment": {

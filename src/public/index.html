@@ -18,7 +18,7 @@
     <meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
     <meta property="og:url" content="" /> <!-- where do you want your post to link to -->
     <meta property="og:type" content="article" />
-
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <!-- Website Title -->
     <title>Autoeléctrica Guevara</title>
 
@@ -265,7 +265,7 @@
                                             </div>
                                             <div class="card-body">
                                                 <h4 class="card-title">SERVICIO A DOMICILIO*</h4>
-                                                <p>Rescate del vehículo o cambios de Batería <span style="font-size: 0.75rem;">*Rescate del vehpiculo disponible
+                                                <p>Rescate del vehículo o cambios de batería <span style="font-size: 0.75rem;">*Rescate del vehpiculo disponible
                                                     únciamente en la zona urbana de Pachuca. Servicios sujeto a
                                                     disponibilidad.</span> </p>
                                             </div>
@@ -538,6 +538,7 @@
                                     <h2>CONTACTO</h2>
                                     <ul class="list-unstyled li-space-lg" id="list-unstyled-li-space-lg-black">
                                         <li class="address">Comunícate con nosotros</li>
+                                        <li class="address">Haz click en la burbuja de la derecha para chatear con nosotros.</li>
                                         <li class="address-black"><i class="fas fa-map-marker-alt"></i>Vicente Segura
                                             210, col.
                                             Periodistas 42060 Pachuca de
@@ -553,6 +554,7 @@
                                                 class="blue" href="tel:7717184583"><span style="color:yellow;">+521 771
                                                     718 4583</span></a>
                                         </li>
+                                        <li class="address">Envíanos un correo: </li>
                                     </ul>
                                 </div> <!-- end of col -->
                             </div> <!-- end of row -->
@@ -562,6 +564,43 @@
                 </div> <!-- end of container -->
             </div> <!-- end of counter -->
             <!-- end of statistics -->
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    
+                    <!-- Contact Form -->
+                    <form id="contactForm" data-toggle="validator" method="POST" data-focus="false">
+                        <div class="form-group">
+                            <input type="text" class="form-control-input" id="cname" required>
+                            <label class="label-control" for="cname">Nombre</label>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control-input" id="cemail" required>
+                            <label class="label-control" for="cemail">Email</label>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control-textarea" id="cmessage" required></textarea>
+                            <label class="label-control" for="cmessage">Tu mensaje</label>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="cterms" value="Agreed-to-Terms" required>He leído y acepto la <a href="privacy-policy.html">Política de privacidad</a> y los<a href="terms-conditions.html">términos y condiciones</a> 
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="button" class="form-control-submit-button" value="Enviar correo" onclick="sendEmail()">
+                            <!--button type="submit" class="form-control-submit-button">Enviar correo</button-->
+                        </div>
+                        <div class="form-message">
+                            <div id="cmsgSubmit" class="h3 text-center hidden"></div>
+                        </div>
+                    </form>
+                    <!-- end of contact form -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
         </div> <!-- end of container -->
     </div> <!-- end of form -->
     <!-- end of contact -->
