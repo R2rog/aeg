@@ -31,7 +31,7 @@ responseList = {
         }
     },
     "comenzar":{
-        "text": "Nuestro horario de atención es de Lunes a Viernes de 8:30 a 18:30 y Sábados de 8:30 a 14:30. ¿En que podemos ayudarte?"
+        "text": "Nuestro horario de atención es de Lunes a Viernes de 8:30 a 18:30 y Sábados de 8:30 a 14:30. ¿Qué podemos hacer por ti?"
     },
     "canal":{
         "attachment": {
