@@ -31,7 +31,7 @@ responseList = {
         }
     },
     "comenzar":{
-        "text": "Nuestro horario de atención es de Lunes a Viernes de 8:30 a 18:30 y Sábados de 8:30 a 14:30. ¿Qué podemos hacer por ti?"
+        "text": "Nuestro horario de atención es de Lunes a Viernes de 8:30 a 18:30 y Sábados de 8:30 a 14:30. ¿Qué se te ofrece?"
     },
     "canal":{
         "attachment": {
@@ -39,7 +39,7 @@ responseList = {
             "payload": {
                 "template_type": "generic",
                 "elements": [{
-                    "title": "Hemos recibido tu mensaje, ¿de qué manera prefiers que nos comuniquemos contigo?",
+                    "title": "¿De qué manera prefieres que nos comuniquemos contigo?",
                     "subtitle": "Por favor seleccione alguna de las opciones",
                     "buttons": [
                         {
@@ -62,7 +62,7 @@ responseList = {
             "type": "template",
             "payload": {
                 "template_type": "button",
-                "text": "Por favor compártenos tu número de teléfono y nos comunicaremos contigo a la brevedad. Si lo prefieres también puedes llamarnos",
+                "text": "Compártenos tu número de teléfono y nos comunicaremos contigo a la brevedad. Si lo prefieres también puedes llamarnos",
                 "buttons": [
                     {
                         "type": "phone_number",
@@ -74,7 +74,7 @@ responseList = {
         }
     },
     "messenger":{
-        "text":"Pasamos tu duda a nuestro personal y en breve este se contactará contigo."
+        "text":"Pasamos tu solicitud a nuestro personal y en breve nos contactaremos contigo. Gracias."
     },
     "refaccionaria": {
         "attachment": {

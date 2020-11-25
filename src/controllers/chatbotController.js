@@ -91,7 +91,8 @@ function handleMessage(sender_psid, received_message) {
     time = ts.toLocaleTimeString();
     subStr1 = 'gracias';
     subStr2 = 'Gracias';
-    if (date != "Dom" && time < '18:30:00' && time > '8:30:00') {
+    // && time < '18:30:00' && time > '8:30:00'
+    if (date != "Dom") {
       response = {
         "text": "Hola, por el momento no podemos atenderte pero deja tu mensaje y nos comunicaremos contigo dentro de nuestros horarios: Lun-Vie de 8:30 a 18:30 y Sab de 8:30 a 14:30"
       }
