@@ -62,7 +62,7 @@ responseList = {
             "type": "template",
             "payload": {
                 "template_type": "button",
-                "text": "Compártenos tu número de teléfono y nos comunicaremos contigo a la brevedad. Si lo prefieres también puedes llamarnos",
+                "text": "Compártenos tu número de teléfono y nos comunicaremos contigo a la brevedad. Si lo prefieres también puedes llamarnos directamente",
                 "buttons": [
                     {
                         "type": "phone_number",

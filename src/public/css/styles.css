@@ -375,7 +375,7 @@ input[type='checkbox'] {
 	height: 3.125rem;
 	border: 1px solid yellow;
 	border-radius: 1.5rem;
-	background-color: yellow;
+	background-color: white;
 	color: black;
 	font: 700 0.75rem/1.75rem "Montserrat", sans-serif;
 	cursor: pointer;
@@ -383,8 +383,8 @@ input[type='checkbox'] {
 }
 
 .form-control-submit-button:hover {
-	background-color: transparent;
-	color: #00c9db;
+	background-color: yellow;
+	color: black;
 }
 
 /* Form Success And Error Message Formatting */

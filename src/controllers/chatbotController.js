@@ -100,7 +100,7 @@ function handleMessage(sender_psid, received_message) {
       let phoneNumber = firstTrait(received_message.nlp, 'wit$phone_number:phone_number');
       if (textMessage.includes(subStr1) || textMessage.includes(subStr2)) {
         response = {
-          "text": "A usted por elegirnos"
+          "text": "A ti por elegirnos"
         };
       } else if (phonenumber(textMessage)) {
         response = {

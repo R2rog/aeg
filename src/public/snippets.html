@@ -564,5 +564,42 @@
 
             </div> <!-- end of col -->
         </div> <!-- end of row -->
+        
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                
+                <!-- Contact Form m-->
+                <form id="contactForm" data-toggle="validator" method="POST" action="/sendMail"  data-focus="false">
+                    <div class="form-group">
+                        <input type="text" name="nombre" class="form-control-input" id="cname" required>
+                        <label class="label-control" for="cname">Nombre</label>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control-input" id="cemail" required>
+                        <label class="label-control" for="cemail">Email</label>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="mensaje" class="form-control-textarea" id="cmessage" required></textarea>
+                        <label class="label-control" for="cmessage">Tu mensaje</label>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group checkbox">
+                        <input type="checkbox" name="terms" id="cterms" value="Agreed-to-Terms" required>He leído y acepto la <a href="privacy-policy.html">Política de privacidad</a> y los<a href="terms-conditions.html">términos y condiciones</a> 
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <!--input type="button" class="form-control-submit-button" value="Enviar correo" onclick="sendEmail()"-->
+                        <button type="submit" id="sendEmail" class="form-control-submit-button">Enviar correo</button>
+                    </div>
+                    <div class="form-message">
+                        <div id="cmsgSubmit" class="h3 text-center hidden"></div>
+                    </div>
+                </form>
+                <!-- end of contact form -->
+
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
 </body>
 </html>

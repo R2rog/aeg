@@ -2,6 +2,11 @@
    Author: InovatikThemes
    Created: Mar 2019
    Description: Custom JS file
+
+require("dotenv").config();
+const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD;
+const EMAIL_ACCOUNT = process.env.EMAIL_ACCOUNT;
+const DOMPurify = require('dompurify');
 */
 
 

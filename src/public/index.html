@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <!-- SEO Meta Tags -->
     <meta name="description"
         content="Free mobile app HTML landing page template to help you build a great online presence for your app which will convert visitors into users">
@@ -117,9 +117,9 @@
                                 <div class="carousel-item">
                                     <img class="d-block w-100" src="images/S2.png" alt="Second slide">
                                 </div>
-                                <!--div class="carousel-item">
+                                <div class="carousel-item">
                                     <img class="d-block w-100" src="images/S3.png" alt="Third slide">
-                                </div-->
+                                </div>
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
                                 data-slide="prev">
@@ -259,7 +259,7 @@
                                             </div>
                                             <div class="card-body">
                                                 <h4 class="card-title">SERVICIO A DOMICILIO*</h4>
-                                                <p>Rescate del vehículo o cambios de batería <span style="font-size: 0.75rem;">*Rescate del vehpiculo disponible
+                                                <p>Rescate del vehículo o cambios de batería <span style="font-size: 0.75rem;">*Rescate del vehículo disponible
                                                     únicamente en la zona urbana de Pachuca y sujeto a
                                                     disponibilidad de personal.</span> </p>
                                             </div>
@@ -533,18 +533,18 @@
                                     <ul class="list-unstyled li-space-lg" id="list-unstyled-li-space-lg-black">
                                         <li class="address">Comunícate con nosotros</li>
                                         <li class="address">Haz click en la burbuja de la derecha para chatear con nosotros.</li>
-                                        <li class="address-black"><i class="fas fa-map-marker-alt"></i>Vicente Segura
+                                        <li class="address-black"><i class="fas fa-map-marker-alt" style="color: yellow;"></i>Vicente Segura
                                             210, col.
                                             Periodista 42060 Pachuca de
                                             Soto, Hgo</li>
-                                        <li class="address-black"><i class="fas fa-map-marker-alt"></i>Av Francisco I.
+                                        <li class="address-black"><i class="fas fa-map-marker-alt" style="color: yellow;"></i>Av Francisco I.
                                             Madero 1002,
                                             Doctores, 42090 Pachuca de Soto, Hgo.</li>
-                                        <li class="address-black"><i class="fas fa-phone"></i>Refaccionaria Vicente Segura<a
+                                        <li class="address-black"><i class="fas fa-phone" style="color: yellow;"></i>Refaccionaria Vicente Segura<a
                                                 class="blue" href="tel:7717131011"><span style="color: yellow;">+521 771
                                                     713 1011</span></a>
                                         </li>
-                                        <li class="address-black"><i class="fas fa-phone"></i>Refaccionaria Av. Madero<a
+                                        <li class="address-black"><i class="fas fa-phone" style="color: yellow;"></i>Refaccionaria Av. Madero<a
                                                 class="blue" href="tel:7717184583"><span style="color:yellow;">+521 771
                                                     718 4583</span></a>
                                         </li>
@@ -558,42 +558,6 @@
                 </div> <!-- end of container -->
             </div> <!-- end of counter -->
             <!-- end of statistics -->
-            <div class="row">
-                <div class="col-lg-6 offset-lg-3">
-                    
-                    <!-- Contact Form -->
-                    <form id="contactForm" data-toggle="validator" method="POST" data-focus="false">
-                        <div class="form-group">
-                            <input type="text" class="form-control-input" id="cname" required>
-                            <label class="label-control" for="cname">Nombre</label>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control-input" id="cemail" required>
-                            <label class="label-control" for="cemail">Email</label>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control-textarea" id="cmessage" required></textarea>
-                            <label class="label-control" for="cmessage">Tu mensaje</label>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <div class="form-group checkbox">
-                            <input type="checkbox" id="cterms" value="Agreed-to-Terms" required>He leído y acepto la <a href="privacy-policy.html">Política de privacidad</a> y los<a href="terms-conditions.html">términos y condiciones</a> 
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <div class="form-group">
-                            <input type="button" class="form-control-submit-button" value="Enviar correo" onclick="sendEmail()">
-                            <!--button type="submit" class="form-control-submit-button">Enviar correo</button-->
-                        </div>
-                        <div class="form-message">
-                            <div id="cmsgSubmit" class="h3 text-center hidden"></div>
-                        </div>
-                    </form>
-                    <!-- end of contact form -->
-
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
         </div> <!-- end of container -->
         </div> <!-- end of container -->
     </div> <!-- end of form -->
