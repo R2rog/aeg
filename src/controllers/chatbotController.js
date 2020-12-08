@@ -82,6 +82,7 @@ function firstTrait(nlp, name) {
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
   let response;
+  let dialogPath =0;//Variable que controla el árbol de diálogo del bot.
   // Checks if the message contains text
   if (received_message.text) {
     textMessage = received_message.text;
@@ -106,11 +107,16 @@ function handleMessage(sender_psid, received_message) {
         response = {
           "text": "Pasamos tu información a nuestro personal que se contactará contigo a la brevedad"
         };
+      }else if(dialogPath == 1){
+        response ={
+          "text": "Gracias por enviarnos mensaje. En breve te responderemos."
+        }
       }
       else {
         // Create the payload for a basic text message, which
         // will be added to the body of our request to the Send API
         response = responses.canal;
+        dialogPath = 1;
       }
     }
   } else if (received_message.attachments) {
