@@ -6,6 +6,9 @@ const request = require('request');
 const bodyParser = require('body-parser');
 const responses = require('./responses');
 
+let dialogPath =0;//Variable que controla el árbol de diálogo del bot.
+
+
 let test = (req, res) => {
   return res.send("Hello again!")
 }
@@ -82,7 +85,6 @@ function firstTrait(nlp, name) {
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
   let response;
-  let dialogPath =0;//Variable que controla el árbol de diálogo del bot.
   // Checks if the message contains text
   if (received_message.text) {
     textMessage = received_message.text;
