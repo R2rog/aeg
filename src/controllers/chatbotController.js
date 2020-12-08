@@ -8,7 +8,6 @@ const responses = require('./responses');
 
 let dialogPath =0;//Variable que controla el árbol de diálogo del bot.
 
-
 let test = (req, res) => {
   return res.send("Hello again!")
 }
