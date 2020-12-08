@@ -1,5 +1,7 @@
 require("dotenv").config();
 
+//TODO: Mover el send fuuera de la funcion de handleMessage. Verificar los valores de dialogPath
+
 const MY_VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const request = require('request');
@@ -108,25 +110,34 @@ function handleMessage(sender_psid, received_message) {
         response = {
           "text": "Pasamos tu información a nuestro personal que se contactará contigo a la brevedad"
         };
-      }else if(dialogPath >0){
-        dialogPath += 1;
-      }
+      }/*else if(dialogPath > 1){
+        console.log('Second: ',dialogPath);
+        response = {
+          "text": "Gracias por enviarnos mensaje. En breve te responderemos"
+        }
+      }*/
       else {
+        console.log('First: ',dialogPath);
         // Create the payload for a basic text message, which
         // will be added to the body of our request to the Send API
         response = responses.canal;
-        dialogPath = 1;
+        dialogPath += 1;
       }
     }
   } else if (received_message.attachments) {
     // Get the URL of the message attachment
     let attachment_url = received_message.attachments[0].payload.url;
     response = {
-      "text": "Hemos recibido su mensajen en breve nuestro equipo se comunicará contigo"
+      "text": "Hemos recibido tu mensajen en breve nuestro equipo se comunicará contigo"
     }
   }
   // Send the response message
-  callSendAPI(sender_psid, response);
+  //Stoping the chatbot
+  if(dialogPath>2){
+    console.log("Bot on hold...");
+  }else{
+    callSendAPI(sender_psid, response); //move the response outside
+  }
 }
 
 // Handles messaging_postbacks events
