@@ -108,10 +108,8 @@ function handleMessage(sender_psid, received_message) {
         response = {
           "text": "Pasamos tu información a nuestro personal que se contactará contigo a la brevedad"
         };
-      }else if(dialogPath == 1){
-        response ={
-          "text": "Gracias por enviarnos mensaje. En breve te responderemos."
-        }
+      }else if(dialogPath >0){
+        dialogPath += 1;
       }
       else {
         // Create the payload for a basic text message, which
