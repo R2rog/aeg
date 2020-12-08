@@ -112,13 +112,13 @@ function handleMessage(sender_psid, received_message) {
         response ={
           "text": "Gracias por enviarnos mensaje. En breve te responderemos."
         }
-        dialogPath =0;
+        dialogPath =1;
       }
       else {
         // Create the payload for a basic text message, which
         // will be added to the body of our request to the Send API
         response = responses.canal;
-        dialogPath = 1;
+        dialogPath = 0;
       }
     }
   } else if (received_message.attachments) {
