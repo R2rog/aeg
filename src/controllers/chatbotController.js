@@ -112,6 +112,7 @@ function handleMessage(sender_psid, received_message) {
         response ={
           "text": "Gracias por enviarnos mensaje. En breve te responderemos."
         }
+        dialogPath =0;
       }
       else {
         // Create the payload for a basic text message, which
