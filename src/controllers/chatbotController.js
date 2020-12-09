@@ -10,6 +10,9 @@ const responses = require('./responses');
 
 let dialogPath = 0;//Variable que controla el árbol de diálogo del bot.
 
+let currentChats =[]
+currentDate ="Wed";
+
 let test = (req, res) => {
   return res.send("Hello again!")
 }
@@ -85,14 +88,15 @@ function firstTrait(nlp, name) {
 
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
-  let response;
+  let response;    
+  ts = new Date();
+  date = ts.toDateString().slice(0,3);
+  time = ts.toLocaleTimeString();
+  restartChat(date);
+  console.log('Current chats: ',currentChats);
   // Checks if the message contains text
   if (received_message.text) {
     textMessage = received_message.text;
-    ts = new Date();
-    console.log(ts)
-    date = ts.toDateString().slice(0,3);
-    time = ts.toLocaleTimeString();
     subStr1 = 'gracias';
     subStr2 = 'Gracias';
     // && time < '18:30:00' && time > '8:30:00'
@@ -121,23 +125,45 @@ function handleMessage(sender_psid, received_message) {
         // Create the payload for a basic text message, which
         // will be added to the body of our request to the Send API
         response = responses.canal;
-        dialogPath += 1;
+        currentChats.push(sender_psid);
       }
     }
   } else if (received_message.attachments) {
     // Get the URL of the message attachment
     let attachment_url = received_message.attachments[0].payload.url;
     response = {
-      "text": "Hemos recibido tu mensajen en breve nuestro equipo se comunicará contigo"
+      "text": "Hemos recibido tu mensaje en breve nuestro equipo se comunicará contigo"
     }
   }
   // Send the response message
   //Stoping the chatbot
-  if(dialogPath>2){
+  let times = 0;
+  for(id in currentChats){
+    console.log(id);
+    if(currentChats[id]==sender_psid && times<2){
+      times +=1;
+    }else if(currentChats[id]==sender_psid && times>2){
+      break;
+    }else{
+      continue;
+    }
+  }
+  console.log(times);
+  if(times>1){
     console.log("Bot on hold...");
   }else{
     callSendAPI(sender_psid, response); //move the response outside
   }
+}
+
+function restartChat(date){
+  if(date == currentDate){
+    return true
+  }else{
+    currentDate = date;
+    currentChats = [];
+    return false
+  };
 }
 
 // Handles messaging_postbacks events
