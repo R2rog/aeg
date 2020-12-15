@@ -24,7 +24,7 @@ function copyHTML(){
 
 //Image minifier
 function imgMin(){
-    return src(imgPath).pipe(imagemin()).pipe(gulp.dest('src/dist/images'));
+    return src(imgPath).pipe(imagemin()).pipe(gulp.dest('src/public/images'));
 }
 
 //Javascript minifier

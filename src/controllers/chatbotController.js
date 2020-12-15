@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 //TODO: Mover el send fuuera de la funcion de handleMessage. Verificar los valores de dialogPath
-
+//TODO: Poner las fechas de todos los mensajes en una pila para compararlos
 const MY_VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const request = require('request');
@@ -9,9 +9,8 @@ const bodyParser = require('body-parser');
 const responses = require('./responses');
 
 let dialogPath = 0;//Variable que controla el árbol de diálogo del bot.
-
 let currentChats =[]
-currentDate ="Wed";
+let currentDate = ["Mon"];
 
 let test = (req, res) => {
   return res.send("Hello again!")
@@ -92,17 +91,18 @@ function handleMessage(sender_psid, received_message) {
   ts = new Date();
   date = ts.toDateString().slice(0,3);
   time = ts.toLocaleTimeString();
-  restartChat(date);
+  currentDate.push(date);
+  restartChat();
   console.log('Current chats: ',currentChats);
   // Checks if the message contains text
   if (received_message.text) {
     textMessage = received_message.text;
     subStr1 = 'gracias';
     subStr2 = 'Gracias';
-    // && time < '18:30:00' && time > '8:30:00'
-    if (date == "Dom") {
+    // && time > '18:30:00' && time <'8:30:00'
+    if (date == "Dom" ||time > '18:30:00' || time <'8:30:00') {
       response = {
-        "text": "Hola, por el momento no podemos atenderte pero deja tu mensaje y nos comunicaremos contigo dentro de nuestros horarios: Lun-Vie de 8:30 a 18:30 y Sab de 8:30 a 14:30"
+        "text": "Hola, por el momento no podemos atenderte pero deja tu mensaje y nos comunicaremos contigo dentro de nuestros horarios: Lun-Vie de 8:30 a 18:30 y Sáb de 8:30 a 14:30"
       }
     } else {
       let phoneNumber = firstTrait(received_message.nlp, 'wit$phone_number:phone_number');
@@ -156,15 +156,16 @@ function handleMessage(sender_psid, received_message) {
   }
 }
 
-function restartChat(date){
-  if(date == currentDate){
+function restartChat(){
+  if(currentDate[0] == currentDate[1]){
+    currentDate.shift();
     return true
   }else{
-    currentDate = date;
     currentChats = [];
+    currentDate.shift();
     return false
   };
-}
+};
 
 // Handles messaging_postbacks events
 function handlePostback(sender_psid, received_postback) {
