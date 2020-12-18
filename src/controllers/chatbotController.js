@@ -90,7 +90,7 @@ function handleMessage(sender_psid, received_message) {
   let response;    
   ts = new Date();
   date = ts.toDateString().slice(0,3);
-  time = ts.toLocaleTimeString();
+  time = ts.getHours();
   currentDate.push(date);
   restartChat();
   console.log('Current chats: ',currentChats);
@@ -100,7 +100,7 @@ function handleMessage(sender_psid, received_message) {
     subStr1 = 'gracias';
     subStr2 = 'Gracias';
     // && time > '18:30:00' && time <'8:30:00'
-    if (date == "Dom" ||time > '18:30:00' || time <'8:30:00') {
+    if (date == "Dom" ||time > 19 || time <8) {
       response = {
         "text": "Hola, por el momento no podemos atenderte pero deja tu mensaje y nos comunicaremos contigo dentro de nuestros horarios: Lun-Vie de 8:30 a 18:30 y Sáb de 8:30 a 14:30"
       }
