@@ -1,7 +1,6 @@
 .log
 node_modules
 .env
-package-lock.json
 src/controllers/requests.txt
 src/public/snippets.html
 src/dist
