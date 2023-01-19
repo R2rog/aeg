@@ -32,7 +32,8 @@
   },
   "stack": "heroku-22",
   "engines": {
-    "npm": "6.x"
+    "npm": "8.x",
+    "node": "16.x"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
