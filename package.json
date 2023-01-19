@@ -34,11 +34,6 @@
     "request": "^2.88.2",
     "sendgrid": "^5.2.3"
   },
-  "stack": "heroku-22",
-  "engines": {
-    "npm": "8.x",
-    "node": "16.x"
-  },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
     "cssnano": "^5.1.14"
