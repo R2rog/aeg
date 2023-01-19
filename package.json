@@ -8,6 +8,10 @@
     "start": "node src/index",
     "preinstall": "npx npm-force-resolutions"
   },
+  "engines":{
+    "node": "16.16.0"
+  },
+  "stack": "heroku-22",
   "author": "R2rog",
   "license": "ISC",
   "dependencies": {
