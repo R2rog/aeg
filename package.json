@@ -20,6 +20,7 @@
     "request": "^2.88.2",
     "sendgrid": "^5.2.3"
   },
+  "stack": "heroku-22",
   "resolutions": {
     "graceful-fs": "^4.2.10"
   },
