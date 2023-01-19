@@ -18,7 +18,18 @@
     "handlebars": "^4.7.6",
     "nodemailer": "^6.4.16",
     "request": "^2.88.2",
-    "sendgrid": "^5.2.3"
+    "sendgrid": "^5.2.3",
+    "autoprefixer": "^10.0.1",
+    "cssnano": "^5.1.14",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-minify": "^3.0.0",
+    "gulp-postcss": "^9.0.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-terser": "^1.4.1",
+    "gulp-uglify": "^3.0.2",
+    "postcss": "^8.1.6"
   },
   "stack": "heroku-22",
   "resolutions": {
